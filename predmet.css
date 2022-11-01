@@ -1,16 +1,32 @@
+
+.meni{
+   top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    width: 100%;
+    background-color: rgb(227, 202, 202);
+    
+}
+
+.smijer{
+    float: left;
+    
+}
+
 .smijer li {
     display: inline;
     list-style-type: none;
-    float: left;
+    
     padding: 5px;
 }
-#meni li{
-    display: inline;
-   
+
+.glavni{
+    margin-top: 150px;
 }
 .ri{
     clear: left;
-    padding: 200px;
+  
 }
 
 
