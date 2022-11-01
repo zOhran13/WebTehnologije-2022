@@ -1,0 +1,16 @@
+.smijer li {
+    display: inline;
+    list-style-type: none;
+    float: left;
+    padding: 5px;
+}
+#meni li{
+    display: inline;
+   
+}
+.ri{
+    clear: left;
+    padding: 200px;
+}
+
+
