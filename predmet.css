@@ -16,6 +16,8 @@
 
 .smijer{
     float: left;
+    box-sizing: border-box;
+    padding-left: 5%;
     
     
 }
@@ -44,14 +46,30 @@
     padding: 10px;
     
 
-
 }
 
 .predmet>div{
     border: 1px;
     border-style: dotted;
-    
+   
 
+}
+.predmet div{
+    text-align: center;
+}
+.redovni{
+    background-color: white;
+}
+.izborni{
+    background-color: powderblue;
+}
+.nema{
+    background-color: grey;
+}
+@media screen and (max-width: 300px) {
+    div.meni,
+    div.smijer{float: none;}
+    
 }
 
 
