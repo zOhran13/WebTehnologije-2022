@@ -1,14 +1,40 @@
 h2,h4{
     text-align: center;
 }
-.red td {
-    border: 1px solid black;
-    border-collapse: collapse;  
-}
-
-tableS.tabela {
+table, td, tr, th {
     border: 1px solid black;
     border-collapse: collapse;
+    empty-cells: show;
+    column-width: 35px;
+    
+    text-align: left;
+   
+    
 }
+.tabela{
+    column-gap: 20px;
+}
+.posebno{
+    border: none;
+}
+table{
+    margin: auto;
+}
+.posebno1{
+    border-top: none;
+}
+.prisutan{
+    background-color: rgb(75, 179, 75);
+}
+.odsutan{
+    background-color: rgb(255, 0, 0);
+}
+.nema{
+    background-color: white;
+}
+
+
+
+
 
 
