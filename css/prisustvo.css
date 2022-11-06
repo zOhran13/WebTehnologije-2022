@@ -6,16 +6,22 @@ table, td, tr, th {
     border-collapse: collapse;
     empty-cells: show;
     column-width: 35px;
-    
+    padding: 10px;
     text-align: left;
    
     
 }
+.posebno2{
+    border-bottom: none;
+}
 .tabela{
     column-gap: 20px;
+    overflow-x: auto;
+
 }
 .posebno{
-    border: none;
+    border-bottom: none;
+    border-top: none;
 }
 table{
     margin: auto;
@@ -25,12 +31,29 @@ table{
 }
 .prisutan{
     background-color: rgb(75, 179, 75);
+    height: 30px;
+    width: 15px;
 }
 .odsutan{
     background-color: rgb(255, 0, 0);
+    height: 30px;
+    width: 15px;
 }
 .nema{
     background-color: white;
+    width: 15px;
+    height: 30px;
+}
+.predavanja, .vjezbe{
+    text-align: center;
+    height: 30px;
+    width: 15px;
+}
+.ostale{
+    border-bottom: none;
+    border-top: none;
+    empty-cells: show;
+    
 }
 
 
