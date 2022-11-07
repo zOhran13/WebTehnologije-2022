@@ -5,12 +5,13 @@ table, td, tr, th {
     border: 1px solid black;
     border-collapse: collapse;
     empty-cells: show;
-    column-width: 35px;
     padding: 10px;
     text-align: left;
+    width: 80px;
    
     
 }
+
 .posebno2{
     border-bottom: none;
 }
@@ -50,9 +51,9 @@ table{
     width: 15px;
 }
 .ostale{
-    border-bottom: none;
-    border-top: none;
+    
     empty-cells: show;
+    border: none;
     
 }
 
