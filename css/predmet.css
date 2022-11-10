@@ -6,13 +6,17 @@
     right: 0;
     position: fixed;
     width: 100%;
-    background-color: white;
+    background-color:white;
     display: flex;
+    
     
      
 }
-a:visited{
+a{
     color: black;
+}
+a:visited{
+    color: darkred;
 }
 
 #odsijek1,#odsijek2,#odsijek3,#odsijek4{
@@ -142,10 +146,9 @@ a:hover{
 }
 
 .predmet>div{
-    border: 1px;
+    border: 2px;
     border-style: dotted;
-    
-   
+    border-color: brown;
 
 }
 .predmet div{
@@ -164,6 +167,7 @@ a:hover{
     
     .meni{
           position: relative;
+          background-color: tan;
     } 
            
 } 
