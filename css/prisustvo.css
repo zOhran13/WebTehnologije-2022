@@ -21,7 +21,7 @@ table, td, tr, th {
 .posebno2{
     border-bottom: none;
 }
-.tabela{
+.divSadrzaj{
     column-gap: 20px;
     overflow-x: auto;
 
