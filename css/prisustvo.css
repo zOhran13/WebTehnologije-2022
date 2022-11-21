@@ -1,7 +1,10 @@
 h2,h4{
     text-align: center;
 }
-table, td, tr, th {
+table.mainTable,
+table.mainTable td,
+table.mainTable tr,
+table.mainTable th {
     border: 1px solid black;
     border-collapse: collapse;
     empty-cells: show;
@@ -30,7 +33,7 @@ table, td, tr, th {
     border-bottom: none;
     border-top: none;
 }
-table{
+table.mainTable {
     margin: auto;
 }
 .posebno1{
@@ -61,6 +64,12 @@ table{
     empty-cells: show;
     border: none;
     
+}
+.prisustvo{
+    width: 100%;
+  height: 100%;
+  padding: 10px;
+  margin: 0px;
 }
 
 
