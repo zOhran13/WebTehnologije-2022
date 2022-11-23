@@ -33,11 +33,14 @@ let TabelaPrisustvo = function (divRef, podaci) {
             (unique, item) => (unique.includes(item) ? unique : [...unique, item]),
             [],
           );
+          //console.log(sedmiceNisuUnesene)
+          //console.log(sedmiceUnesene)
+         // console.log(sedmice)
 
         let brojSedmica = sedmice.length;
         let trenutnaSedmica = brojSedmica;
 
-        let zaglavlje = ['Ime i prezime', 'Index', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII'];
+        let zaglavlje = ['Ime i prezime', 'Index', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV'];
         var header = document.createElement('thead')
         header.appendChild(document.createElement("th")).
         appendChild(document.createTextNode(zaglavlje[0]));
@@ -50,8 +53,9 @@ let TabelaPrisustvo = function (divRef, podaci) {
             appendChild(document.createTextNode(zaglavlje[i+2]));
         }
         if(brojSedmica < zaglavlje.length) {
-            header.appendChild(document.createElement("th")).
+          let kraj=  header.appendChild(document.createElement("th")).
             appendChild(document.createTextNode(zaglavlje[2 + brojSedmica] + "-" + zaglavlje[zaglavlje.length-1]));
+         
         }
        
         tabela.appendChild(header);
@@ -67,11 +71,11 @@ let TabelaPrisustvo = function (divRef, podaci) {
             }
         })
         let predmet = ""
-        Object.values(podaci).forEach(obj => {
+       /* Object.values(podaci).forEach(obj => {
             if(!(obj instanceof Object) && typeof obj === "string") {
                 predmet = obj
             }
-        })
+        })*/
         let predavanjaSedmicno = podaci.brojPredavanjaSedmicno;
         let vjezbiSedmicno = podaci.brojVjezbiSedmicno;
 
@@ -86,10 +90,11 @@ let TabelaPrisustvo = function (divRef, podaci) {
             let index = document.createTextNode(student.index)
             celija.appendChild(index);
             red.appendChild(celija);
+            
 
             let studentovaPrisustva = prisustva.filter(prisustvo => prisustvo.index === student.index && prisustvo.sedmica === trenutnaSedmica)
-            console.log(studentovaPrisustva)
-
+            //console.log(studentovaPrisustva)
+            
             
             for(let k = 1; k <= brojSedmica; k++) {
             if(k  === trenutnaSedmica) {
@@ -98,6 +103,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
             celija.className = "prisustvo"
             let prviRed = document.createElement('tr')
             let drugiRed = document.createElement('tr')
+
             for(let i = 0; i < predavanjaSedmicno; i++) {
                 let celijaPredavanja = document.createElement("td")
                 celijaPredavanja.className="predavanja"
@@ -136,10 +142,20 @@ let TabelaPrisustvo = function (divRef, podaci) {
         celija.appendChild(prviRed) 
         celija.appendChild(drugiRed) 
     }
-        else {
+        else if(k<trenutnaSedmica && k!=0) {
             //postotak
+            let sPris =  prisustva.filter(prisustvo => prisustvo.index === student.index && prisustvo.sedmica === k)
+            sPris.forEach(prisustvo => {
+                let bioNaV = prisustvo.vjezbe
+                //console.log(bioNaV)
+                let bioNaP=prisustvo.predavanja  
+            let postotak = document.createTextNode(((bioNaP+bioNaV)/(podaci.brojPredavanjaSedmicno+podaci.brojVjezbiSedmicno))*100+'%');
+            //console.log(postotak);
            celija = document.createElement("td");
+          celija.appendChild(postotak);
+            })
         }
+
         red.appendChild(celija)
         tabela.appendChild(red);
         }
@@ -185,10 +201,10 @@ let TabelaPrisustvo = function (divRef, podaci) {
      
     
     };
-    export {
+   /* export {
         TabelaPrisustvo
     };
-   
+   */
     
   
  
