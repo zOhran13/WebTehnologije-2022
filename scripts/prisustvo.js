@@ -21,7 +21,7 @@ let prisustvo = TabelaPrisustvo(div, {
     "prisustva": [{
     "sedmica": 1,
     "predavanja": 0,
-    "vjezbe": 1,
+    "vjezbe": 0,
     "index": 12345
     },
     {
@@ -33,39 +33,34 @@ let prisustvo = TabelaPrisustvo(div, {
     {
         "sedmica": 1,
         "predavanja": 2,
-        "vjezbe": 2,
+        "vjezbe": 0,
         "index": 12347
         },
     {
     "sedmica": 2,
-    "predavanja": 1,
+    "predavanja": 0,
     "vjezbe": 2,
     "index": 12345
     },
     {
     "sedmica": 2,
-    "predavanja": 2,
+    "predavanja":0,
     "vjezbe": 0,
     "index": 12346
     },
     {
         "sedmica": 2,
         "predavanja": 2,
-        "vjezbe": 2,
+        "vjezbe": 0,
         "index": 12347
         },
     {
         "sedmica": 3,
         "predavanja": 1,
-        "vjezbe": 1,
+        "vjezbe": 0,
         "index": 12345
         },
-        {
-            "sedmica": 3,
-            "predavanja": 2,
-            "vjezbe": 2,
-            "index": 12346
-            },
+        
         {
         "sedmica": 3,
         "predavanja": 2,
