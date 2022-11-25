@@ -185,7 +185,7 @@ let brojeviSedmica = unijeto.reduce(
 
             let studentovaPrisustva = prisustva.filter(prisustvo => prisustvo.index === student.index && prisustvo.sedmica === trenutnaSedmica)
            console.log(studentovaPrisustva)
-            
+            console.log(brojSedmica)
             
             for(let k = 1; k <= brojSedmica; k++) {
                 
@@ -249,6 +249,10 @@ let brojeviSedmica = unijeto.reduce(
             //postotak
             let sPris =  prisustva.filter(prisustvo => prisustvo.index === student.index && prisustvo.sedmica==k)//ovdje popravit
             //console.log(sPris)
+            if(sPris.length==0) {
+                celija = document.createElement("td"); 
+
+            }
             if(sPris.length!=0) {
             sPris.forEach(prisustvo => {
                 let bioNaV = prisustvo.vjezbe
@@ -260,6 +264,10 @@ let brojeviSedmica = unijeto.reduce(
           celija.appendChild(postotak);
             })
         }
+        // else{
+        //     let prazno=document.createTextNode("");
+        //     celija.appendChild(prazno);
+        // }
         }
 
         red.appendChild(celija)
