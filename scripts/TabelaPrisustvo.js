@@ -129,7 +129,7 @@ let brojeviSedmica = unijeto.reduce(
           //console.log(sedmiceNisuUnesene)
           //console.log(sedmiceUnesene)
          // console.log(sedmice)
-//console.log(max);
+         //console.log(max);
 
         let brojSedmica = max;
         let trenutnaSedmica = max;
@@ -165,12 +165,8 @@ let brojeviSedmica = unijeto.reduce(
                 
             }
         })
-        let predmet = ""
-       /* Object.values(podaci).forEach(obj => {
-            if(!(obj instanceof Object) && typeof obj === "string") {
-                predmet = obj
-            }
-        })*/
+        
+       
         let predavanjaSedmicno = podaci.brojPredavanjaSedmicno;
         let vjezbiSedmicno = podaci.brojVjezbiSedmicno;
 
@@ -188,7 +184,7 @@ let brojeviSedmica = unijeto.reduce(
             
 
             let studentovaPrisustva = prisustva.filter(prisustvo => prisustvo.index === student.index && prisustvo.sedmica === trenutnaSedmica)
-           // console.log(studentovaPrisustva)
+           console.log(studentovaPrisustva)
             
             
             for(let k = 1; k <= brojSedmica; k++) {
@@ -208,13 +204,17 @@ let brojeviSedmica = unijeto.reduce(
                 prviRed.appendChild(celijaPredavanja)
             
                 let prisustvoPredavanja = document.createElement("td")
+
+                if(studentovaPrisustva.length==0) prisustvoPredavanja.className="nema";
+                
                 studentovaPrisustva.forEach(prisustvo => {
                         let bioNaP = prisustvo.predavanja;
                         //let imaLi=0;
                         //if(bioNaP>=1)  imaLi=1;
-                        //console.log(imaLi)
+                        //console.log(bioNaP)
                         //if(imaLi===0)
-                        prisustvoPredavanja.className = "nema"
+                        //prisustvoPredavanja.className = "nema"
+                        
                         if (i >= 0 && i < bioNaP)
                         prisustvoPredavanja.className = "prisutan"
                         else 
@@ -234,7 +234,7 @@ let brojeviSedmica = unijeto.reduce(
                 studentovaPrisustva.forEach(prisustvo => {
                     let bioNaV = prisustvo.vjezbe
                     //if(Object.values(studentovaPrisustva)===0)
-                    prisustvoVjezbe.className = "nema";
+                   // prisustvoVjezbe.className = "nema";
                     if(i >= 0 && i < bioNaV)
                     prisustvoVjezbe.className = "prisutan"
                     else 
@@ -247,7 +247,9 @@ let brojeviSedmica = unijeto.reduce(
     }
         else if(k<trenutnaSedmica && k!=0) {
             //postotak
-            let sPris =  prisustva.filter(prisustvo => prisustvo.index === student.index && prisustvo.sedmica === k)//ovdje popravit
+            let sPris =  prisustva.filter(prisustvo => prisustvo.index === student.index && prisustvo.sedmica==k)//ovdje popravit
+            //console.log(sPris)
+            if(sPris.length!=0) {
             sPris.forEach(prisustvo => {
                 let bioNaV = prisustvo.vjezbe
                 //console.log(bioNaV)
@@ -257,6 +259,7 @@ let brojeviSedmica = unijeto.reduce(
            celija = document.createElement("td");
           celija.appendChild(postotak);
             })
+        }
         }
 
         red.appendChild(celija)
