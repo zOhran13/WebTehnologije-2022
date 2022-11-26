@@ -49,7 +49,7 @@ let prisustvo = TabelaPrisustvo(div, {
    
     {
         "sedmica": 2,
-        "predavanja": 1,
+        "predavanja": 0,
         "vjezbe": 0,
         "index": 12347
         },
@@ -76,5 +76,7 @@ let prisustvo = TabelaPrisustvo(div, {
     );
 //pozivanje metoda
 //import {TabelaPrisustvo} from '../scripts/TabelaPrisustvo.js'
+
 prisustvo.sljedecaSedmica();
 prisustvo.prethodnaSedmica();
+prisustvo.dugmadi();

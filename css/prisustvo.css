@@ -71,7 +71,18 @@ table.mainTable {
   padding: 10px;
   margin: 0px;
 }
+p{
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
 
+.button{
+   
+    width: 70px;
+    height: 30px;  
+    margin: 0;
+}
 
 
 
