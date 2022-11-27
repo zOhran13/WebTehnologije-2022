@@ -282,7 +282,7 @@ var brojeviSedmica = unijeto.reduce(
  
   dugme1.setAttribute("class", "fa-solid fa-arrow-left fa-3x center")
 btn1.appendChild(dugme1)
- btn1.style="margin:10px"
+ btn1.style="margin-left:45%"
  btn1.onclick=function(){
     prethodnaSedmica();
  }
@@ -291,7 +291,7 @@ btn1.appendChild(dugme1)
   var dugme2 = document.createElement("i")
   dugme2.setAttribute("class", "fa-solid fa-arrow-right fa-3x center")
  btn2.appendChild(dugme2)
-  btn2.style="margin:10px"
+  btn2.style="margin-right:43%"
   btn2.onclick=function(){
     sljedecaSedmica();
   }//dodajmo na dugme fj onclick i sta ona poziva
