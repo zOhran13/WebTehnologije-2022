@@ -77,10 +77,9 @@ p{
     font-weight: bold;
 }
 
-.button{
+button{
    
-    width: 70px;
-    height: 30px;  
+      
     margin: 0;
 }
 
