@@ -1,10 +1,10 @@
 
 let TabelaPrisustvo = function (divRef, podaci) {
 
-   var trenutnaSedmica=-1;
+   var trenutnaSedmica=-1; //globalno 
    var max=-2;
    let crtaj = function() {
-      divRef.innerHTML = ""
+      divRef.innerHTML = "" //brise sadrzaj diva
  
   
      var x=document.createElement("P");
@@ -16,7 +16,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
     var validacija4=1;
     var validacija5=1;
 
-     var prisustva = [];
+     var prisustva = []; //izdvojena lista prisustva iz podataka
          Object.values(podaci).forEach(obj => {
             if(obj instanceof Object) {
                 Object.values(obj).forEach(temp => {
@@ -26,24 +26,24 @@ let TabelaPrisustvo = function (divRef, podaci) {
                 
             }
         })
-        var sedmiceUnesene = [...new Set(prisustva.map(prisustvo => prisustvo.sedmica))]; 
+        var sedmiceUnesene = [...new Set(prisustva.map(prisustvo => prisustvo.sedmica))]; //lista sedmica
        
         var sedmice = sedmiceUnesene.reduce(
-            (unique, item) => (unique.includes(item) ? unique : [...unique, item]),
+            (unique, item) => (unique.includes(item) ? unique : [...unique, item]), //uzeti samo po jednom brojevi sedmice
             [],
           );
            max=sedmice[0];
           for(var i=1; i<sedmice.length; i++) {
-            if(sedmice[i]>max) max=sedmice[i];
+            if(sedmice[i]>max) max=sedmice[i]; //max broj sedmice
           }
          
 
-        var brojSedmica = max;
-        if(trenutnaSedmica==-1) {
-       trenutnaSedmica =max;
+        var brojSedmica = max; 
+        if(trenutnaSedmica==-1) { 
+       trenutnaSedmica =max; //samo prvi put ako se ne promjeni globalna trenutnaSedmica dole iz fj
         }
 
-        console.log(trenutnaSedmica)
+      //VALIDACIJA
        //vise unseno P ili V nego sto ima sedmicno i broj manji od nule
 for(var i = 0; i<prisustva.length; i++) {
     
@@ -133,7 +133,7 @@ var brojeviSedmica = unijeto.reduce(
         var tabela=document.createElement('table'); 
         tabela.className = "mainTable"
        
-
+//zaglavlje tabele
         var zaglavlje = ['Ime i prezime', 'Index', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV'];
         var header = document.createElement('thead')
         header.appendChild(document.createElement("th")).
@@ -154,7 +154,7 @@ var brojeviSedmica = unijeto.reduce(
        
         tabela.appendChild(header);
 
-        var studenti = []
+        var studenti = [] //izdvojena lista studenata
         Object.values(podaci).forEach(obj => {
             if(obj instanceof Object) {
                 Object.values(obj).forEach(temp => {
@@ -169,7 +169,7 @@ var brojeviSedmica = unijeto.reduce(
         var predavanjaSedmicno = podaci.brojPredavanjaSedmicno;
         var vjezbiSedmicno = podaci.brojVjezbiSedmicno;
 
-        studenti.forEach(student => {
+        studenti.forEach(student => { 
             var red = document.createElement("tr");
             var celija = document.createElement("td");
             var ime = document.createTextNode(student.ime);
@@ -180,20 +180,20 @@ var brojeviSedmica = unijeto.reduce(
             var index = document.createTextNode(student.index)
             celija.appendChild(index);
             red.appendChild(celija);
-            
+            //prosli kroz listu studenata i stavili ime i prezime za studenta u red
 
-            var studentovaPrisustva = prisustva.filter(prisustvo => prisustvo.index === student.index && prisustvo.sedmica === trenutnaSedmica)
+            var studentovaPrisustva = prisustva.filter(prisustvo => prisustvo.index === student.index && prisustvo.sedmica === trenutnaSedmica) //prisustva za studenta na trenutnoj sedmici
           
             
             for(var k = 1; k <= brojSedmica; k++) {
-             // trenutnaSedmica=max;  
-            if(k  === trenutnaSedmica) {
+             // dio tabele ako je trenutna sedmica 
+            if(k  === trenutnaSedmica) { 
             celija = document.createElement("td");
 
             celija.className = "prisustvo"
             var prviRed = document.createElement('tr')
             var drugiRed = document.createElement('tr')
-
+//dva reda za oznake predavanja i vjezbi i za boje prisustva
             for(var i = 0; i < predavanjaSedmicno; i++) {
                 var celijaPredavanja = document.createElement("td")
                 celijaPredavanja.className="predavanja"
@@ -203,13 +203,15 @@ var brojeviSedmica = unijeto.reduce(
             
                 var prisustvoPredavanja = document.createElement("td")
 
-                if(studentovaPrisustva.length==0) prisustvoPredavanja.className="nema";
+                if(studentovaPrisustva.length==0) 
+                prisustvoPredavanja.className="nema";
                 
                 studentovaPrisustva.forEach(prisustvo => {
                         var bioNaP = prisustvo.predavanja;
-                      
+                      if(bioNaP==null) 
+                      prisustvoPredavanja.className="nema";
                         
-                        if (i >= 0 && i < bioNaP)
+                        else if (i >= 0 && i < bioNaP)
                         prisustvoPredavanja.className = "prisutan"
                         else 
                         prisustvoPredavanja.className = "odsutan"
@@ -228,7 +230,9 @@ var brojeviSedmica = unijeto.reduce(
                 studentovaPrisustva.forEach(prisustvo => {
                     var bioNaV = prisustvo.vjezbe
                    
-                    if(i >= 0 && i < bioNaV)
+                   if(bioNaV==null)
+                   prisustvoVjezbe.className="nema";
+                    else if(i >= 0 && i < bioNaV)
                     prisustvoVjezbe.className = "prisutan"
                     else 
                     prisustvoVjezbe.className = "odsutan"
@@ -239,17 +243,19 @@ var brojeviSedmica = unijeto.reduce(
         celija.appendChild(drugiRed) 
     }
         else  {
-            //postotak
-            var sPris =  prisustva.filter(prisustvo => prisustvo.index === student.index && prisustvo.sedmica==k)//ovdje popravit
+            //postotak ako nije trenutna sedmica
+            var sPris =  prisustva.filter(prisustvo => prisustvo.index === student.index && prisustvo.sedmica==k ) //studentova prisustva ako nije trenutna sedmica
          
-            if(sPris.length==0) {
+            if(sPris.length==0 && sPris.vjezbe==null) {
                 celija = document.createElement("td"); 
 
             }
             if(sPris.length!=0) {
             sPris.forEach(prisustvo => {
                 var bioNaV = prisustvo.vjezbe
+                if(bioNaV==null) bioNaV=0;
                 var bioNaP=prisustvo.predavanja 
+                if(bioNaP==null) bioNaP=0;
                 var pos=((bioNaP+bioNaV)/(podaci.brojPredavanjaSedmicno+podaci.brojVjezbiSedmicno))*100
             var postotak = document.createTextNode(pos.toFixed(0)+'%');
           
@@ -265,9 +271,9 @@ var brojeviSedmica = unijeto.reduce(
         }
         })
       
-        divRef.appendChild(tabela);
+        divRef.appendChild(tabela); //na kraju dodamo tabelu na div
 
-       
+ //dodajmo ikone te te ikone dodamo na dugmad      
  var d=divRef.appendChild(document.createElement('script'))
    d.setAttribute("src", "https://kit.fontawesome.com/04a4ec8674.js")   
    d.setAttribute("crossorigin", "anonymous")  
@@ -288,13 +294,13 @@ btn1.appendChild(dugme1)
   btn2.style="margin:10px"
   btn2.onclick=function(){
     sljedecaSedmica();
-  }
+  }//dodajmo na dugme fj onclick i sta ona poziva
   divRef.appendChild(btn2)
         
   
     }
     else {
-        divRef.appendChild(x);
+        divRef.appendChild(x); // ukoliko validacija nije zadovoljena ispisujemo poruku na ekran
     }
 
 
@@ -305,12 +311,11 @@ btn1.appendChild(dugme1)
 }
 
     let sljedecaSedmica = function () {
-        if(trenutnaSedmica!=max) {
+        if(trenutnaSedmica!=max) { 
        
-             
          trenutnaSedmica++;
          crtaj();
-        console.log(trenutnaSedmica) 
+      
         }
 
     }
@@ -318,16 +323,16 @@ btn1.appendChild(dugme1)
         if(trenutnaSedmica>1) {
         trenutnaSedmica--; 
         crtaj();
-        console.log(trenutnaSedmica)
+       
         }
     }
-    console.log(trenutnaSedmica)
+    
 
     return {
       crtaj: crtaj,
      sljedecaSedmica: sljedecaSedmica,
     prethodnaSedmica: prethodnaSedmica
-    //dugmadi:dugmadi
+    
     
     
    
