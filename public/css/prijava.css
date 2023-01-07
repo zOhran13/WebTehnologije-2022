@@ -1,9 +1,25 @@
 .log{
-    width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid rgb(117, 17, 17);
-  box-sizing: border-box;
-
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+html,body {
+  height:100%;
+  width:100%;
+  margin:0;
+  align-items: center;
+  gap: 10px;
+}
+body {
+  display:flex;
+}
+div {
+  margin:auto;
+}
+button{
+  align-items: center;
+}
+
+
