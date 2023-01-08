@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const bcrypt = require('bcryptjs');
 
 const app = express();
 const fs = require("fs");
@@ -34,6 +35,11 @@ app.use(
     saveUninitialized: true,
   })
 );
+app.post('/hes', (req, res) => {
+  bcrypt.hash(req.body.password, 10, function(err, hash) {
+    res.json({"password_hash": hash});
+    });
+  });
 
 app.post("/login", function (req, res) {
   if (!req.body.data.username || !req.body.data.password)
@@ -52,12 +58,26 @@ app.post("/login", function (req, res) {
     } else {
       const nastavnici = JSON.parse(jsonString);
       for (let i = 0; i < nastavnici.length; i++) {
-        if (
-          username === nastavnici[i].nastavnik.username &&
-          password === nastavnici[i].nastavnik.password_hash
-        ) {
-          pronasao = nastavnici[i];
+        let pr;
+
+        if ( username === nastavnici[i].nastavnik.username )
+        
+        // password === nastavnici[i].nastavnik.password_hash 
+         {
+          pr=1;
+          if(pr===1) {
+            //console.log('prov')
+            bcrypt.compare(password, nastavnici[i].nastavnik.password_hash, function(err, res) {
+              if(password===nastavnici[i].nastavnik.password_hash) {
+              pronasao = nastavnici[i].nastavnik;
+              }
+              
+          });
+          }
+          if(pr===1) { 
+            //console.log('trl',pronasao)
           break;
+          }
         }
       }
       if (pronasao) {
