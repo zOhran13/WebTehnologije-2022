@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="../css/prijava.css" type="text/css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" href="./prijava.css" type="text/css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prijava</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="log">
-    <form method = "POST" action = "/"></form>
-    
-<input id="username" type = "text" name = "username" placeholder="Username">
-<br>
-<input id="password" type="password" name = "password" placeholder="Password">
-<br>
-<button id="login" type="button">Login</button>
-<div id="greska">
+      <form method="POST" action="/"></form>
 
-</div>
-</div>
+      <input id="username" type="text" name="username" placeholder="Username" />
+      <br />
+      <input
+        id="password"
+        type="password"
+        name="password"
+        placeholder="Password"
+      />
+      <br />
+      <button id="login" type="button">Login</button>
+      <div id="greska"></div>
+    </div>
 
-<script src="../scripts/poziviAjax.js"></script>
-<script src="../scripts/prijava.js"></script>
-</body>
+    <script src="./poziviAjax.js"></script>
+    <script src="./prijava.js"></script>
+  </body>
 </html>

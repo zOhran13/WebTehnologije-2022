@@ -1,25 +1,16 @@
-.log{
+.log {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-html,body {
-  height:100%;
-  width:100%;
-  margin:0;
-  align-items: center;
-  gap: 10px;
-}
 body {
-  display:flex;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-div {
-  margin:auto;
-}
-button{
+button {
   align-items: center;
 }
-
-

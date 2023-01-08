@@ -1,195 +1,170 @@
-
-.meni{
-
-    top: 0;
-    left: 0;
-    right: 0;
-    position: fixed;
-    width: 100%;
-    background-color:white;
-    
-    
-    
-     
+.meni {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  width: 100%;
+  background-color: white;
 }
-a{
-    color: black;
+a {
+  color: black;
 }
-a:visited{
-    color: darkred;
+a:visited {
+  color: darkred;
 }
 
-#odsijek1,#odsijek2,#odsijek3,#odsijek4{
-    padding-right: 50px;
+#odsijek1,
+#odsijek2,
+#odsijek3,
+#odsijek4 {
+  padding-right: 50px;
 }
 
-.naslovi{
-    scroll-margin-block-start: 120px;
+.naslovi {
+  scroll-margin-block-start: 120px;
 }
-div.smjerovi{
-    padding-left: 20%;
+div.smjerovi {
+  padding-left: 20%;
 }
-.smijer{
-    float: left;
+.smijer {
+  float: left;
 }
-h2:hover{
-    color: blue;
+h2:hover {
+  color: blue;
 }
-
 
 .smijer li {
-    display: inline;
-    list-style-type: none;
-     padding: 10px;
+  display: inline;
+  list-style-type: none;
+  padding: 10px;
 }
 
-.glavni{
-    margin-top: 150px;
-    padding: 10px;
-    text-align: center;
-   background-color: beige;
-   box-sizing: border-box;
+.glavni {
+  margin-top: 150px;
+  padding: 10px;
+  text-align: center;
+  background-color: beige;
+  box-sizing: border-box;
 }
-.odsijek{
-    margin-bottom: -5px;
+.odsijek {
+  margin-bottom: -5px;
 }
-#ri{
-    clear: left;
-  
+#ri {
+  clear: left;
 }
 .predmet {
-    display:grid;
-    grid-template-columns: repeat(auto-fill,200px);
-    gap: 10px;
-    padding: 10px;
-    
-
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  gap: 10px;
+  padding: 10px;
 }
 
-.predmet>div{
-    border: 1px;
-    border-style: dotted;
-    
-   
-
+.predmet > div {
+  border: 1px;
+  border-style: dotted;
 }
-.predmet div{
-    text-align: center;
+.predmet div {
+  text-align: center;
 }
-.redovni{
-    background-color: white;
+.redovni {
+  background-color: white;
 }
-.izborni{
-    background-color: powderblue;
+.izborni {
+  background-color: powderblue;
 }
-.nema{
-    background-color: grey;
+.nema {
+  background-color: grey;
 }
-.meni{
-
-    top: 0;
-    left: 0;
-    right: 0;
-    position: fixed;
-    width: 100%;
-    background-color: white;
-    display: flex;
-    
-     
+.meni {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  display: flex;
 }
 
-#odsijek1,#odsijek2,#odsijek3,#odsijek4{
-    padding-right: 50px;
+#odsijek1,
+#odsijek2,
+#odsijek3,
+#odsijek4 {
+  padding-right: 50px;
 }
 
-.naslovi{
-    scroll-margin-block-start: 120px;
+.naslovi {
+  scroll-margin-block-start: 120px;
 }
-div.smjerovi{
-    padding-left: 20%;
+div.smjerovi {
+  padding-left: 20%;
 }
-.smijer{
-    float: left;
+.smijer {
+  float: left;
 }
-a:hover{
-   background-color: powderblue;
+a:hover {
+  background-color: powderblue;
 }
-
 
 .smijer li {
-    display: inline;
-    list-style-type: none;
-     padding: 10px;
+  display: inline;
+  list-style-type: none;
+  padding: 10px;
 }
 
-.glavni{
-    margin-top: 150px;
-    padding: 10px;
-    text-align: center;
-   background-color: beige;
-   box-sizing: border-box;
+.glavni {
+  margin-top: 150px;
+  padding: 10px;
+  text-align: center;
+  background-color: beige;
+  box-sizing: border-box;
 }
-.odsijek{
-    margin-bottom: -5px;
+.odsijek {
+  margin-bottom: -5px;
 }
-#ri{
-    clear: left;
-  
+#ri {
+  clear: left;
 }
 .predmet {
-    display:grid;
-    grid-template-columns: repeat(auto-fill,200px);
-    gap: 10px;
-    padding: 10px;
-    
-
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  gap: 10px;
+  padding: 10px;
 }
 
-.predmet>div{
-    border: 2px;
-    border-style: dotted;
-    border-color: brown;
-
+.predmet > div {
+  border: 2px;
+  border-style: dotted;
+  border-color: brown;
 }
-.predmet div{
-    text-align: center;
+.predmet div {
+  text-align: center;
 }
-.redovni{
-    background-color: white;
+.redovni {
+  background-color: white;
 }
-.izborni{
-    background-color: powderblue;
+.izborni {
+  background-color: powderblue;
 }
-.nema{
-    background-color: grey;
+.nema {
+  background-color: grey;
 }
 @media screen and (max-width: 300px) {
-    
-    .meni{
-          position: relative;
-          background-color: tan;
-    } 
-           
-} 
-h4{
-    text-align: center;
+  .meni {
+    position: relative;
+    background-color: tan;
+  }
 }
-img{
-    height: 30px;
-    width: 30px;
+h4 {
+  text-align: center;
 }
-h4{
-    text-align: center;
+img {
+  height: 30px;
+  width: 30px;
 }
-img{
-    height: 30px;
-    width: 30px;
+h4 {
+  text-align: center;
 }
-
-
-
-
-
-
-
-
+img {
+  height: 30px;
+  width: 30px;
+}
