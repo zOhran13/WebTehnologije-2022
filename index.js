@@ -15,6 +15,16 @@ app.use(express.static("./public/html"));
 app.use(express.static("./public/Ikonice"));
 app.use(express.static("./public/scripts"));
 
+app.get('/prisustvo',(req,res)=>{
+  res.sendFile(__dirname + '/public/html/prisustvo.html')
+})
+app.get('/prijava',(req,res)=>{
+  res.sendFile(__dirname + '/public/html/prijava.html')
+})
+app.get('/predmet',(req,res)=>{
+  res.sendFile(__dirname + '/public/html/predmet.html')
+})
+
 app.use(
   session({
     secret: "neka tajna sifra",

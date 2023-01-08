@@ -71,7 +71,43 @@ const PoziviAjax = (() => {
     fnCallback
   ) {
     if (!prisustvo) {
-      console.log("Nema prisustva");
+      //console.log("Nema prisustva");
+      const pronadjiTrenutneCifre = trenutneVrijednosti.prisustva.find(
+        (e) =>
+          Number(e.sedmica) === Number(sedmica) &&
+          e.index.toString() === index.toString()
+      );
+      let noviBodyZaRequest = {
+        ...pronadjiTrenutneCifre,
+      };
+      if (tip === "predavanja") {
+        noviBodyZaRequest.predavanja = noviBodyZaRequest.predavanja + 1;
+      }
+      if (tip === "vjezbe") {
+        noviBodyZaRequest.vjezbe = noviBodyZaRequest.vjezbe +1;
+      }
+      const poziv = new XMLHttpRequest();
+      poziv.onreadystatechange = () => {
+        if (poziv.readyState === 4 && poziv.status === 200) {
+          const odgovor = poziv.response;
+          const json = JSON.parse(odgovor);
+          fnCallback(json);
+        } else {
+          fnCallback(null);
+        }
+      };
+      poziv.open("POST", `/prisustvo/predmet/${naziv}/student/${index}`, true);
+      poziv.setRequestHeader("Content-Type", "application/json");
+      poziv.send(
+        JSON.stringify({
+          data: {
+            sedmica: noviBodyZaRequest.sedmica,
+            predavanja: noviBodyZaRequest.predavanja,
+            vjezbe: noviBodyZaRequest.vjezbe,
+          },
+        })
+      );
+
     } else if (prisustvo === "prisutan") {
       const pronadjiTrenutneCifre = trenutneVrijednosti.prisustva.find(
         (e) =>
