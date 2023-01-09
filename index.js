@@ -40,7 +40,8 @@ app.post('/hes', (req, res) => {
     res.json({"password_hash": hash});
     });
   });
-
+var pronasao = null;
+var pr=null;
 app.post("/login", function (req, res) {
   if (!req.body.data.username || !req.body.data.password)
     return res
@@ -50,39 +51,44 @@ app.post("/login", function (req, res) {
   const username = req.body.data.username;
   const password = req.body.data.password;
 
-  let pronasao = null;
-
-  fs.readFile("./data/nastavnici.json", "utf-8", function (err, jsonString) {
+  
+  fs.readFile("./data/nastavnici.json", "utf-8",async function (err, jsonString) {
     if (err) {
       return console.log(err);
     } else {
       const nastavnici = JSON.parse(jsonString);
+     // const saltRounds = 10;
       for (let i = 0; i < nastavnici.length; i++) {
-        let pr;
-
-        if ( username === nastavnici[i].nastavnik.username )
         
-        // password === nastavnici[i].nastavnik.password_hash 
-         {
-          pr=1;
-          if(pr===1) {
-            //console.log('prov')
-            bcrypt.compare(password, nastavnici[i].nastavnik.password_hash, function(err, res) {
-              if(password===nastavnici[i].nastavnik.password_hash) {
-              pronasao = nastavnici[i].nastavnik;
-              }
+      
+        if (username === nastavnici[i].nastavnik.username ) {
+          
+              const result = await bcrypt.compare(password, nastavnici[i].nastavnik.password_hash);
+                
+          
+             if(result) {
+              pr=1;
+              pronasao = nastavnici[i];
+              console.log('Ovdje mi je pr',pr)
               
-          });
-          }
-          if(pr===1) { 
-            //console.log('trl',pronasao)
-          break;
-          }
+              }
+        
         }
+
+         console.log('Ovdje sam',pr)
+         if(pr){
+console.log('ovdje je username ovaj',username)
+            break;
+          }
+          pr=null;
       }
+      
+     // console.log('Ovdje sam pronasao',pronasao)
+
       if (pronasao) {
         session.username = username;
         session.predmeti = JSON.stringify(pronasao.predmeti);
+        pronasao = null;
         return res.send({ poruka: "Uspješna prijava" });
       } else {
         return res
@@ -94,8 +100,8 @@ app.post("/login", function (req, res) {
 });
 
 app.post("/logout", function (req, res) {
-  session.username = "";
-  session.predmeti = [];
+  session.username = null;
+  session.predmeti = null;
 });
 
 app.get("/predmeti", function (req, res) {

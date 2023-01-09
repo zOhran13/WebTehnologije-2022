@@ -56,7 +56,7 @@ const PoziviAjax = (() => {
     const poziv = new XMLHttpRequest();
     poziv.open("POST", "logout", true);
     poziv.setRequestHeader("Content-Type", "application/json");
-    poziv.send();
+    poziv.send(null,null);
     fnCallback();
   }
 
