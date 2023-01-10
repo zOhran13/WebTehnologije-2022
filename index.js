@@ -69,15 +69,15 @@ app.post("/login", function (req, res) {
              if(result) {
               pr=1;
               pronasao = nastavnici[i];
-              console.log('Ovdje mi je pr',pr)
+              //console.log('Ovdje mi je pr',pr)
               
               }
         
         }
 
-         console.log('Ovdje sam',pr)
+        // console.log('Ovdje sam',pr)
          if(pr){
-console.log('ovdje je username ovaj',username)
+//console.log('ovdje je username ovaj',username)
             break;
           }
           pr=null;
