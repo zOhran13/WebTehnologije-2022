@@ -62,14 +62,14 @@ app.post("/login", function (req, res) {
         
       
         if (username === nastavnici[i].nastavnik.username ) {
-          
+         // console.log('nasao sam po imenu',username)
               const result = await bcrypt.compare(password, nastavnici[i].nastavnik.password_hash);
                 
           
              if(result) {
               pr=1;
               pronasao = nastavnici[i];
-              //console.log('Ovdje mi je pr',pr)
+             // console.log('Ovdje mi je pr i password',pr,password)
               
               }
         
