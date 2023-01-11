@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", rout);
 const PORT = 3000;
 app.use(bodyParser.json());
-
+app.use(express.static('public'))
 app.use(express.static("./public/css"));
 app.use(express.static("./public/html"));
 app.use(express.static("./public/Ikonice"));
