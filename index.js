@@ -89,11 +89,12 @@ app.post("/login", function (req, res) {
         session.username = username;
         session.predmeti = JSON.stringify(pronasao.predmeti);
         pronasao = null;
-        return res.send({ poruka: "Uspješna prijava" });
+        
+        return res.send({poruka:"Uspješna prijava"});
       } else {
         return res
           .status(404)
-          .send({ poruka: "Neuspješna prijava" });
+          .send({poruka:"Neuspješna prijava"});
       }
     }
   });
@@ -102,6 +103,7 @@ app.post("/login", function (req, res) {
 app.post("/logout", function (req, res) {
   session.username = null;
   session.predmeti = null;
+  
 });
 
 app.get("/predmeti", function (req, res) {
