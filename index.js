@@ -69,7 +69,7 @@ app.post("/login", function (req, res) {
              if(result) {
               pr=1;
               pronasao = nastavnici[i];
-             // console.log('Ovdje mi je pr i password',pr,password)
+             
               
               }
         
