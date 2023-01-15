@@ -86,10 +86,10 @@ app.post("/login", function (req, res) {
      // console.log('Ovdje sam pronasao',pronasao)
 
       if (pronasao) {
-        session.username = username;
-        session.predmeti = JSON.stringify(pronasao.predmeti);
+        req.session.username = username;
+        req.session.predmeti = JSON.stringify(pronasao.predmeti);
         pronasao = null;
-        
+        console.log('sesija',session)
         return res.send({poruka:"Uspješna prijava"});
       } else {
         return res
@@ -101,22 +101,27 @@ app.post("/login", function (req, res) {
 });
 
 app.post("/logout", function (req, res) {
-  session.username = null;
-  session.predmeti = null;
+ 
+req.session.destroy();
+
+  // req.session.username = null;
+  // session.predmeti = null;
+  //console.log('sesija',session)
+  
   
 });
 
 app.get("/predmeti", function (req, res) {
-  if (session.username === "") {
+  if (!req.session.username) {
     return res.status(400).send({ greska: "Nastavnik nije loginovan" });
   }
-  return res.send({ predmeti: JSON.parse(session.predmeti) });
+  return res.send({ predmeti: JSON.parse(req.session.predmeti) });
 });
 
 app.get("/predmet/:naziv", function (req, res) {
   const { naziv } = req.params;
   fs.readFile("./data/prisustva.json", "utf-8", function (err, jsonString) {
-    if (session.username === "") {
+    if (!req.session.username) {
       return res.status(400).send({ greska: "Nastavnik nije loginovan" });
     } else if (err) {
       return res.status(404).send({ poruka: "Doslo je do greske" });
@@ -141,7 +146,7 @@ app.get("/predmet/:naziv", function (req, res) {
 app.post("/prisustvo/predmet/:naziv/student/:index", function (req, res) {
   const { naziv, index } = req.params;
   const { sedmica, predavanja, vjezbe } = req.body.data;
-  if (session.username === "") {
+  if (!req.session.username) {
     return res.status(400).send({ greska: "Nastavnik nije loginovan" });
   }
   fs.readFile("./data/prisustva.json", "utf-8", function (err, jsonString) {
