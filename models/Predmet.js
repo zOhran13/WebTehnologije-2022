@@ -7,7 +7,21 @@ module.exports = function (sequelize, DataTypes) {
         predmeti: {
             type: Sequelize.STRING,
             field: 'predmeti'
+        },
+        NastavnikId: {
+            type: Sequelize.INTEGER,
+            field: 'NastavnikId'
+        },
+        brojPredavanjaSedmicno: {
+            type: Sequelize.INTEGER,
+            field: 'brojPredavanjaSedmicno'
+        },
+        brojVjezbiSedmicno: {
+            type: Sequelize.INTEGER,
+            field: 'brojVjezbiSedmicno'
         }
+
+        
    });
    return Predmet;
 }

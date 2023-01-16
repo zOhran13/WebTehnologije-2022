@@ -4,13 +4,26 @@ const bcrypt = require('bcryptjs');
 const Sequelize = require('sequelize');
 const sequelize = require('./baza.js');
 
+const app = express();
+const fs = require("fs");
+const session = require("express-session");
+const rout = express.Router();
+app.use(express.urlencoded({ extended: true }));
+app.use("/", rout);
+const PORT = 3000;
+app.use(bodyParser.json());
+
 const Nastavnik = require('./models/Nastavnik.js')(sequelize);
 const Predmet = require('./models/Predmet.js')(sequelize);
+const Student = require('./models/Student.js')(sequelize);
+const Prisustvo = require('./models/Prisustvo.js')(sequelize);
 
-Nastavnik.hasMany(Predmet, {as: 'idNastavnik', onDelete: 'CASCADE'})
+Nastavnik.hasMany(Predmet, {as: 'NastavnikId', onDelete: 'CASCADE'})
+Student.hasMany(Prisustvo,{as: 'idStudent'})
 Nastavnik.sync()
 Predmet.sync()
-
+Student.sync()
+Prisustvo.sync()
 // Nastavnik.bulkCreate([
 //   { username: "USERNAME", password_hash: "$2a$10$zbiZcjIcPDf2w4YwyEs1kOtEJDfIg0cntTcAVYt4pewxpgbN5Zyxy" },
 //   { username: "USERNAME2", password_hash: "$2a$10$eExVBRbzxnEskStm2MWc9edOfVzfEF.95sn5Lmwp3hO3aVT.JDzz." },
@@ -21,19 +34,17 @@ Predmet.sync()
 // ).then(() => console.log("Users data have been saved"));
 
 // Predmet.bulkCreate([
-//   {NastavnikId:"1", predmeti: "PREDMET1"},
-//   {NastavnikId:"2", predmeti:"PREDMET2"},
-//   {NastavnikId:"3", predmeti:"PREDMET3"}
+//   {NastavnikId:"1", predmeti: "PREDMET1",brojPredavanjaSedmicno: "2", brojVjezbiSedmicno: "2"},
+//   {NastavnikId:"2", predmeti:"PREDMET2",brojPredavanjaSedmicno: "2",brojVjezbiSedmicno: "2"},
+//   {NastavnikId:"3", predmeti:"PREDMET3",brojPredavanjaSedmicno: "2",brojVjezbiSedmicno: "2"}
 // ])
 
-const app = express();
-const fs = require("fs");
-const session = require("express-session");
-const rout = express.Router();
-app.use(express.urlencoded({ extended: true }));
-app.use("/", rout);
-const PORT = 3000;
-app.use(bodyParser.json());
+// Student.bulkCreate([
+//   {ime: "Zlata Ohran",index: "12345"},
+//   {ime: "Besim Ohran",index: "12346"},
+//   {ime: "Safa Ohran",index: "12347"},
+//   {ime: "Ahmed Ohran",index: "12348"}
+// ])
 app.use(express.static('public'))
 app.use(express.static("./public/css"));
 app.use(express.static("./public/html"));
