@@ -20,6 +20,7 @@ const PoziviAjax = (() => {
 
   // vraća listu predmeta za loginovanog nastavnika ili grešku da nastavnik nije loginovan
   function impl_getPredmeti(fnCallback) {
+    console.log('evo nas')
     const poziv = new XMLHttpRequest();
     poziv.onreadystatechange = () => {
       if (poziv.readyState === 4 && poziv.status === 200) {

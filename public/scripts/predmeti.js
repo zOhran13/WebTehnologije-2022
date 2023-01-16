@@ -2,6 +2,7 @@ const predmeti = document.getElementById("predmeti");
 
 window.onload = () => {
   PoziviAjax.getPredmeti(fnCallbackPredmeti);
+  
 };
 
 const fnCallbackPredmeti = (predmetiResponse) => {

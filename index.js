@@ -1,6 +1,30 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const bcrypt = require('bcryptjs');
+const Sequelize = require('sequelize');
+const sequelize = require('./baza.js');
+
+const Nastavnik = require('./models/Nastavnik.js')(sequelize);
+const Predmet = require('./models/Predmet.js')(sequelize);
+
+Nastavnik.hasMany(Predmet, {as: 'idNastavnik', onDelete: 'CASCADE'})
+Nastavnik.sync()
+Predmet.sync()
+
+// Nastavnik.bulkCreate([
+//   { username: "USERNAME", password_hash: "$2a$10$zbiZcjIcPDf2w4YwyEs1kOtEJDfIg0cntTcAVYt4pewxpgbN5Zyxy" },
+//   { username: "USERNAME2", password_hash: "$2a$10$eExVBRbzxnEskStm2MWc9edOfVzfEF.95sn5Lmwp3hO3aVT.JDzz." },
+//   { username: "USERNAME3", password_hash: "$2a$10$xuwn4EXCopjpV9U52DsCA.k4mftwwD2pPMs.mnrzL8sSZxrN5lzEC" },
+// ],{
+//   ignoreDuplicates: true,
+// }
+// ).then(() => console.log("Users data have been saved"));
+
+// Predmet.bulkCreate([
+//   {NastavnikId:"1", predmeti: "PREDMET1"},
+//   {NastavnikId:"2", predmeti:"PREDMET2"},
+//   {NastavnikId:"3", predmeti:"PREDMET3"}
+// ])
 
 const app = express();
 const fs = require("fs");
@@ -42,7 +66,8 @@ app.post('/hes', (req, res) => {
   });
 var pronasao = null;
 var pr=null;
-app.post("/login", function (req, res) {
+
+app.post("/login",  function (req, res) {
   if (!req.body.data.username || !req.body.data.password)
     return res
       .status(400)
@@ -50,66 +75,74 @@ app.post("/login", function (req, res) {
 
   const username = req.body.data.username;
   const password = req.body.data.password;
+  var temp = [];
+  var nizPromisea = [];
+   Nastavnik.findAll({raw:true})
+  .then(data => {
+    var nastavnici = data
+    var predmeti = []
+   
+    for(let i = 0; i<nastavnici.length; i++){
+      //console.log('ovdje sam',username)
 
-  
-  fs.readFile("./data/nastavnici.json", "utf-8",async function (err, jsonString) {
-    if (err) {
-      return console.log(err);
-    } else {
-      const nastavnici = JSON.parse(jsonString);
-     // const saltRounds = 10;
-      for (let i = 0; i < nastavnici.length; i++) {
-        
-      
-        if (username === nastavnici[i].nastavnik.username ) {
-         // console.log('nasao sam po imenu',username)
-              const result = await bcrypt.compare(password, nastavnici[i].nastavnik.password_hash);
-                
-          
-             if(result) {
-              pr=1;
-              pronasao = nastavnici[i];
-             
+      if(username === nastavnici[i].username) {
+        const result = bcrypt.compare(password,nastavnici[i].password_hash);
+        if(result){
+         
+          pronasao = nastavnici[i].username;
+          pr = nastavnici[i].id;
+
+          break;
+        }
+      } 
+    }
+        if (pronasao) {
+          req.session.username = username;
+          Predmet.findAll({raw:true,
+            where:{
+              NastavnikId: pr
+            }
+          }).then(predmeti=>{
+            
+            predmeti.forEach(element => {
+              temp.push(element.predmeti)
+
               
-              }
-        
+            });
+
+            req.session.predmeti = JSON.stringify(temp);
+            req.session.save();
+
+console.log('ovdje predmeti',req.session)
+          })
+          
+
+         // req.session.predmeti = JSON.stringify(pronasao.predmeti);
+          pronasao = null;
+          pr = null;
+          return res.send({ poruka: "Uspješna prijava" });
+        } else {
+          return res
+            .status(404)
+            .send({ poruka: "Neuspješna prijava" });
         }
 
-        // console.log('Ovdje sam',pr)
-         if(pr){
-//console.log('ovdje je username ovaj',username)
-            break;
-          }
-          pr=null;
-      }
-      
-     // console.log('Ovdje sam pronasao',pronasao)
-
-      if (pronasao) {
-        req.session.username = username;
-        req.session.predmeti = JSON.stringify(pronasao.predmeti);
-        pronasao = null;
-        return res.send({ poruka: "Uspješna prijava" });
-      } else {
-        return res
-          .status(404)
-          .send({ poruka: "Neuspješna prijava" });
-      }
-    }
-  });
+  })
 });
 
 app.post("/logout", function (req, res) {
   req.session.destroy();
-  // req.session.username = null;
-  // req.session.predmeti = null;
+  // session.username = null;
+  // session.predmeti = null;
+  
 });
 
 app.get("/predmeti", function (req, res) {
   if (!req.session.username) {
     return res.status(400).send({ greska: "Nastavnik nije loginovan" });
   }
-  return res.send({ predmeti: JSON.parse(req.session.predmeti) });
+  console.log('evo nas',req.session)
+  return res.send({ predmeti: JSON.parse(req.session.predmeti)});
 });
 
 app.get("/predmet/:naziv", function (req, res) {
