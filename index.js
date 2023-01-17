@@ -253,12 +253,9 @@ objekat = {studenti:st,prisustva:prisustva,predmet:naziv,brojPredavanjaSedmicno:
          
       })
 
-      //console.log('ovdje mi sve ispisi',objekat)
-        //return res.send({ prisustva: pom });
+     
       }
-      //  else {
-      //   return res.status(404).send({ poruka: "Doslo je do greske" });
-      // }
+     
     
   })
   //console.log('ovdje mi sve ispisi',objekat)
@@ -268,6 +265,7 @@ objekat = {studenti:st,prisustva:prisustva,predmet:naziv,brojPredavanjaSedmicno:
 app.post("/prisustvo/predmet/:naziv/student/:index", function (req, res) {
   const { naziv, index } = req.params;
   const { sedmica, predavanja, vjezbe } = req.body.data;
+  console.log('ovdje',sedmica,predavanja,vjezbe,naziv,index)
   if (!req.session.username) {
     return res.status(400).send({ greska: "Nastavnik nije loginovan" });
   }
@@ -279,6 +277,7 @@ app.post("/prisustvo/predmet/:naziv/student/:index", function (req, res) {
       const pronasaoIndex = (predmeti || []).findIndex(
         (e) => naziv === e.predmet
       );
+     // console.log('evo me',pronasaoIndex)
       if (pronasaoIndex === -1) {
         // Nije pronasao
       } else {
@@ -298,6 +297,7 @@ app.post("/prisustvo/predmet/:naziv/student/:index", function (req, res) {
             vjezbe: Number(vjezbe),
             index: Number(index),
           };
+          console.log('evo me', predmeti[pronasaoIndex].prisustva[pronasaoIndexStudenta])
           fs.writeFile(
             "./data/prisustva.json",
             JSON.stringify(predmeti),
