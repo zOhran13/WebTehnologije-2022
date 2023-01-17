@@ -4,9 +4,9 @@ const sequelize = require("../baza.js");
  
 module.exports = function (sequelize, DataTypes) {
     const Predmet = sequelize.define('Predmet', {
-        predmeti: {
+        predmet: {
             type: Sequelize.STRING,
-            field: 'predmeti'
+            field: 'predmet'
         },
         NastavnikId: {
             type: Sequelize.INTEGER,
