@@ -20,7 +20,7 @@ const fnCallbackPredmeti = (predmetiResponse) => {
 const fnCallbackPredmet = (predmetResponse) => {
   let div = document.getElementById("divSadrzaj");
   if (predmetResponse?.prisustva) {
-    console.log('ovdje',predmetResponse.prisustva)
+    //console.log('ovdje',predmetResponse.prisustva)
     let prisustvo = TabelaPrisustvo(div, predmetResponse?.prisustva);
     prisustvo.crtaj();
   } else {

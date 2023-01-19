@@ -49,37 +49,37 @@ Prisustvo.sync()
 
 // Prisustvo.bulkCreate([
 //   {sedmica: "1", predavanja: "1", vjezbe: "0", index: 12345, StudentId : "1", PredmetId : "1"},
-//   {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12345, StudentId : "1", PredmetId : "1"},
-//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12345, StudentId : "1", PredmetId : "1"},
-//   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12345, StudentId : "1", PredmetId : "1"},
 //   {sedmica: "1", predavanja: "1", vjezbe: "0", index: 12346, StudentId : "2", PredmetId : "1"},
-//   {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12346, StudentId : "2", PredmetId : "1"},
-//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12346, StudentId : "2", PredmetId : "1"},
-//   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12346, StudentId : "2", PredmetId : "1"},
 //   {sedmica: "1", predavanja: "1", vjezbe: "0", index: 12347, StudentId : "3", PredmetId : "1"},
-//   {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12347, StudentId : "3", PredmetId : "1"},
-//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12347, StudentId : "3", PredmetId : "1"},
-//   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12347, StudentId : "3", PredmetId : "1"},
 //   {sedmica: "1", predavanja: "1", vjezbe: "0", index: 12348, StudentId : "4", PredmetId : "1"},
+//   {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12345, StudentId : "1", PredmetId : "1"},
+//   {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12346, StudentId : "2", PredmetId : "1"},
+//   {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12347, StudentId : "3", PredmetId : "1"},
 //   {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12348, StudentId : "4", PredmetId : "1"},
-//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12348, StudentId : "4", PredmetId : "1"}, 
+//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12345, StudentId : "1", PredmetId : "1"},
+//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12346, StudentId : "2", PredmetId : "1"},
+//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12347, StudentId : "3", PredmetId : "1"},
+//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12348, StudentId : "4", PredmetId : "1"},
+//   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12345, StudentId : "1", PredmetId : "1"},
+//   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12346, StudentId : "2", PredmetId : "1"},
+//   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12347, StudentId : "3", PredmetId : "1"}, 
 //   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12348, StudentId : "4", PredmetId : "1"},
 
 //   {sedmica: "1", predavanja: "1", vjezbe: "0", index: 12345, StudentId : "1", PredmetId : "2"},
-//   {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12345, StudentId : "1", PredmetId : "2"},
-//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12345, StudentId : "1", PredmetId : "2"},
-//   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12345, StudentId : "1", PredmetId : "2"},
 //   {sedmica: "1", predavanja: "1", vjezbe: "0", index: 12346, StudentId : "2", PredmetId : "2"},
-//   {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12346, StudentId : "2", PredmetId : "2"},
-//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12346, StudentId : "2", PredmetId : "2"},
-//   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12346, StudentId : "2", PredmetId : "2"},
 //   {sedmica: "1", predavanja: "1", vjezbe: "0", index: 12347, StudentId : "3", PredmetId : "2"},
-//   {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12347, StudentId : "3", PredmetId : "2"},
-//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12347, StudentId : "3", PredmetId : "2"},
-//   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12347, StudentId : "3", PredmetId : "2"},
 //   {sedmica: "1", predavanja: "1", vjezbe: "0", index: 12348, StudentId : "4", PredmetId : "2"},
+//   {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12345, StudentId : "1", PredmetId : "2"},
+//   {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12346, StudentId : "2", PredmetId : "2"},
+//   {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12347, StudentId : "3", PredmetId : "2"},
 //   {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12348, StudentId : "4", PredmetId : "2"},
-//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12348, StudentId : "4", PredmetId : "2"}, 
+//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12345, StudentId : "1", PredmetId : "2"},
+//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12346, StudentId : "2", PredmetId : "2"},
+//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12347, StudentId : "3", PredmetId : "2"},
+//   {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12348, StudentId : "4", PredmetId : "2"},
+//   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12345, StudentId : "1", PredmetId : "2"},
+//   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12346, StudentId : "2", PredmetId : "2"},
+//   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12347, StudentId : "3", PredmetId : "2"}, 
 //   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12348, StudentId : "4", PredmetId : "2"},
 
 // ])
@@ -181,8 +181,7 @@ app.post("/login",  function (req, res) {
 
 app.post("/logout", function (req, res) {
   req.session.destroy();
-  // session.username = null;
-  // session.predmeti = null;
+ 
   
 });
 
@@ -245,8 +244,9 @@ app.get("/predmet/:naziv", function (req, res) {
 objekat = {studenti:st,prisustva:prisustva,predmet:naziv,brojPredavanjaSedmicno:podaciZaPredavanja,brojVjezbiSedmicno:podaciZaVjezbe};
         //objekat.prisustva.push(prisustva)
         JSON.stringify(objekat);
-        return res.send({ prisustva: objekat });
         //console.log('ovdje mi sve ispisi',objekat)
+        return res.send({ prisustva: objekat });
+        
         //console.log('st',st)
       })
        // console.log('studenti',studenti)
@@ -258,62 +258,72 @@ objekat = {studenti:st,prisustva:prisustva,predmet:naziv,brojPredavanjaSedmicno:
      
     
   })
-  //console.log('ovdje mi sve ispisi',objekat)
 }
 });
 
-app.post("/prisustvo/predmet/:naziv/student/:index", function (req, res) {
+app.post("/prisustvo/predmet/:naziv/student/:index", async function (req, res) {
   const { naziv, index } = req.params;
   const { sedmica, predavanja, vjezbe } = req.body.data;
-  console.log('ovdje',sedmica,predavanja,vjezbe,naziv,index)
+  var objekat = [];
+ var dajId = null;
   if (!req.session.username) {
     return res.status(400).send({ greska: "Nastavnik nije loginovan" });
   }
-  fs.readFile("./data/prisustva.json", "utf-8", function (err, jsonString) {
-    if (err) {
-      // Error pusti da baci error na kraju
-    } else {
-      const predmeti = JSON.parse(jsonString);
-      const pronasaoIndex = (predmeti || []).findIndex(
-        (e) => naziv === e.predmet
-      );
-     // console.log('evo me',pronasaoIndex)
-      if (pronasaoIndex === -1) {
-        // Nije pronasao
-      } else {
-        const pronasaoIndexStudenta = (
-          predmeti[pronasaoIndex]?.prisustva || []
-        ).findIndex(
-          (e) =>
-            Number(e.index) === Number(index) &&
-            Number(e.sedmica) === Number(sedmica)
-        );
-        if (pronasaoIndexStudenta === -1) {
-          // Nije pronasao
-        } else {
-          predmeti[pronasaoIndex].prisustva[pronasaoIndexStudenta] = {
-            sedmica: Number(sedmica),
-            predavanja: Number(predavanja),
-            vjezbe: Number(vjezbe),
-            index: Number(index),
-          };
-          console.log('evo me', predmeti[pronasaoIndex].prisustva[pronasaoIndexStudenta])
-          fs.writeFile(
-            "./data/prisustva.json",
-            JSON.stringify(predmeti),
-            function (err) {
-              if (err) {
-                return res.status(404).send({ poruka: "Doslo je do greske" });
-                // Error pusti da baci error na kraju
-              }
-            }
-          );
-          return res.send({ prisustva: predmeti[pronasaoIndex] });
-        }
-      }
+ await Predmet.findOne({raw:true,
+  where:{
+    predmet:naziv
+  }
+}).then(data=>{
+   dajId = data.id;
+  
+})
+  await Prisustvo.update({
+    predavanja:predavanja,
+    vjezbe:vjezbe
+  },{
+    where:{
+      PredmetId:dajId,
+      index:index,
+      sedmica:sedmica
     }
-    return res.status(404).send({ poruka: "Doslo je do greske" });
-  });
+  })
+  Predmet.findOne({raw:true,
+  where:{
+    predmet:naziv
+  }}).then(data=>{
+    var red = data;
+    var podaciZaPredavanja = red.brojPredavanjaSedmicno;
+    var podaciZaVjezbe = red.brojVjezbiSedmicno;
+    var studenti = [];
+    var idPred = red.id;
+
+    Prisustvo.findAll({raw:true,
+    where:{
+      PredmetId:idPred
+
+    }
+  }).then(data=>{
+    var prisustva = data;
+    for(let i = 0; i<prisustva.length; i++) {
+      if(!studenti.includes(prisustva[i].index))
+      studenti.push(prisustva[i].index);
+
+    }
+    Student.findAll({raw:true,
+    where:{
+      index:studenti
+    }
+  }).then(data=>{
+    var st = data;
+   
+   objekat = {studenti:st,prisustva:prisustva,predmet:naziv,brojPredavanjaSedmicno:podaciZaPredavanja,brojVjezbiSedmicno:podaciZaVjezbe};
+   return res.send({ prisustva: objekat});
+   
+  })
+  })
+
+  })
+  
 });
 
 app.listen(PORT, () => {
