@@ -25,6 +25,8 @@ Nastavnik.sync()
 Predmet.sync()
 Student.sync()
 Prisustvo.sync()
+
+
 // Nastavnik.bulkCreate([
 //   { username: "USERNAME", password_hash: "$2a$10$zbiZcjIcPDf2w4YwyEs1kOtEJDfIg0cntTcAVYt4pewxpgbN5Zyxy" },
 //   { username: "USERNAME2", password_hash: "$2a$10$eExVBRbzxnEskStm2MWc9edOfVzfEF.95sn5Lmwp3hO3aVT.JDzz." },
@@ -247,9 +249,8 @@ objekat = {studenti:st,prisustva:prisustva,predmet:naziv,brojPredavanjaSedmicno:
         //console.log('ovdje mi sve ispisi',objekat)
         return res.send({ prisustva: objekat });
         
-        //console.log('st',st)
       })
-       // console.log('studenti',studenti)
+     
          
       })
 

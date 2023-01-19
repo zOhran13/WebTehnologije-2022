@@ -8,10 +8,7 @@ module.exports = function (sequelize, DataTypes) {
             type: Sequelize.STRING,
             field: 'predmet'
         },
-        NastavnikId: {
-            type: Sequelize.INTEGER,
-            field: 'NastavnikId'
-        },
+        
         brojPredavanjaSedmicno: {
             type: Sequelize.INTEGER,
             field: 'brojPredavanjaSedmicno'

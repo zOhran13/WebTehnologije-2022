@@ -19,14 +19,6 @@ module.exports = function (sequelize, DataTypes) {
         index: {
             type: Sequelize.STRING,
             field: 'index'
-        },
-        PredmetId: {
-            type: Sequelize.INTEGER,
-            field: 'PredmetId'
-        },
-        StudentId: {
-            type: Sequelize.INTEGER,
-            field: 'StudentId'
         }
 
         
