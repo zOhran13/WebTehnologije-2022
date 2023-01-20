@@ -11,24 +11,23 @@ Nastavnik.hasMany(Predmet, {as: 'NastavnikId', onDelete: 'CASCADE'})
 Predmet.hasMany(Prisustvo,{as:'PredmetId'})
 
 Nastavnik.sync().then(function(){
-popujavanje1()
+popujavanjeTabeleNstavnik()
 });
 
 Student.sync().then(function(){
-  popunjavanje3();
+  popunjavanjeTabeleStudent();
 })
 
 
 Predmet.sync().then(function(){
-  Prisustvo.sync().then(function(){
-    popunjavanje4();
-  }).then(function(){
-    popunjavanje2()
-  });
+ Prisustvo.sync().then(function(){
+  popunjavanjeTabelePredmet();
+  popunjavanjeTabelePrisustvo();
+ })
 });
 
 
-async function popujavanje1(){
+async function popujavanjeTabeleNstavnik(){
 await Nastavnik.bulkCreate([
   { username: "USERNAME", password_hash: "$2a$10$zbiZcjIcPDf2w4YwyEs1kOtEJDfIg0cntTcAVYt4pewxpgbN5Zyxy" },
   { username: "USERNAME2", password_hash: "$2a$10$eExVBRbzxnEskStm2MWc9edOfVzfEF.95sn5Lmwp3hO3aVT.JDzz." },
@@ -40,14 +39,14 @@ await Nastavnik.bulkCreate([
 }
 
 
- function popunjavanje2(){
+ function popunjavanjeTabelePredmet(){
  Predmet.bulkCreate([
   {NastavnikId:"1", predmet: "PREDMET1",brojPredavanjaSedmicno: "2", brojVjezbiSedmicno: "2"},
   {NastavnikId:"2", predmet:"PREDMET2",brojPredavanjaSedmicno: "2",brojVjezbiSedmicno: "2"},
   {NastavnikId:"3", predmet:"PREDMET3",brojPredavanjaSedmicno: "2",brojVjezbiSedmicno: "2"}
 ])
 }
- function popunjavanje3(){
+ function popunjavanjeTabeleStudent(){
  Student.bulkCreate([
   {ime: "Zlata Ohran",index: "12345"},
   {ime: "Besim Ohran",index: "12346"},
@@ -56,7 +55,7 @@ await Nastavnik.bulkCreate([
 ])
 }
 
- function popunjavanje4(){
+ function popunjavanjeTabelePrisustvo(){
 Prisustvo.bulkCreate([
   {sedmica: "1", predavanja: "1", vjezbe: "0", index: 12345, PredmetId : "1"},
   {sedmica: "1", predavanja: "1", vjezbe: "0", index: 12346,  PredmetId : "1"},
