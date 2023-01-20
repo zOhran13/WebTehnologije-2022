@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const bcrypt = require('bcryptjs');
 const Sequelize = require('sequelize');
-const sequelize = require('./baza.js');
+//const sequelize = require('./baza.js');
 
 const app = express();
 const fs = require("fs");
@@ -13,10 +13,12 @@ app.use("/", rout);
 const PORT = 3000;
 app.use(bodyParser.json());
 
+const sequelize = require('./baza.js');
 const Nastavnik = require('./models/Nastavnik.js')(sequelize);
 const Predmet = require('./models/Predmet.js')(sequelize);
 const Student = require('./models/Student.js')(sequelize);
 const Prisustvo = require('./models/Prisustvo.js')(sequelize);
+
 
 
 app.use(express.static('public'))
