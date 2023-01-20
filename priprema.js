@@ -27,8 +27,8 @@ Predmet.sync().then(function(){
 });
 
 
-async function popujavanjeTabeleNstavnik(){
-await Nastavnik.bulkCreate([
+ function popujavanjeTabeleNstavnik(){
+ Nastavnik.bulkCreate([
   { username: "USERNAME", password_hash: "$2a$10$zbiZcjIcPDf2w4YwyEs1kOtEJDfIg0cntTcAVYt4pewxpgbN5Zyxy" },
   { username: "USERNAME2", password_hash: "$2a$10$eExVBRbzxnEskStm2MWc9edOfVzfEF.95sn5Lmwp3hO3aVT.JDzz." },
   { username: "USERNAME3", password_hash: "$2a$10$xuwn4EXCopjpV9U52DsCA.k4mftwwD2pPMs.mnrzL8sSZxrN5lzEC" },
