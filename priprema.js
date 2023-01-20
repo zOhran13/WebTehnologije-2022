@@ -43,7 +43,9 @@ Predmet.sync().then(function(){
  Predmet.bulkCreate([
   {NastavnikId:"1", predmet: "PREDMET1",brojPredavanjaSedmicno: "2", brojVjezbiSedmicno: "2"},
   {NastavnikId:"2", predmet:"PREDMET2",brojPredavanjaSedmicno: "2",brojVjezbiSedmicno: "2"},
-  {NastavnikId:"3", predmet:"PREDMET3",brojPredavanjaSedmicno: "2",brojVjezbiSedmicno: "2"}
+  {NastavnikId:"3", predmet:"PREDMET3",brojPredavanjaSedmicno: "2",brojVjezbiSedmicno: "2"},
+  {NastavnikId:"1", predmet:"PREDMET4",brojPredavanjaSedmicno: "2",brojVjezbiSedmicno: "2"}
+
 ])
 }
  function popunjavanjeTabeleStudent(){
@@ -90,6 +92,26 @@ Prisustvo.bulkCreate([
   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12346,  PredmetId : "2"},
   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12347,  PredmetId : "2"}, 
   {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12348,  PredmetId : "2"},
+  
+
+  {sedmica: "1", predavanja: "1", vjezbe: "0", index: 12345, PredmetId : "4"},
+  {sedmica: "1", predavanja: "1", vjezbe: "0", index: 12346,  PredmetId : "4"},
+  {sedmica: "1", predavanja: "1", vjezbe: "0", index: 12347,  PredmetId : "4"},
+  {sedmica: "1", predavanja: "1", vjezbe: "0", index: 12348,  PredmetId : "4"},
+  {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12345,  PredmetId : "4"},
+  {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12346,  PredmetId : "4"},
+  {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12347, PredmetId : "4"},
+  {sedmica: "2", predavanja: "1", vjezbe: "0", index: 12348,  PredmetId : "4"},
+  {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12345,  PredmetId : "4"},
+  {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12346,  PredmetId : "4"},
+  {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12347,  PredmetId : "4"},
+  {sedmica: "3", predavanja: "1", vjezbe: "0", index: 12348,  PredmetId : "4"},
+  {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12345,  PredmetId : "4"},
+  {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12346,  PredmetId : "4"},
+  {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12347,  PredmetId : "4"}, 
+  {sedmica: "4", predavanja: "1", vjezbe: "0", index: 12348,  PredmetId : "4"}
+  
+
 
 ])
 }
